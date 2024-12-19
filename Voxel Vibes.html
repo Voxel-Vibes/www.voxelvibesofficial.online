@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voxel Vibes - Gaming services, game publishing, and video editing. Expert guidance for gamers and content creators. Enhance your gaming experience with our top-notch services. Get started today!">
+    <meta name="keywords" content="Gaming services, Game publishing, Video editing, Gaming community, Game development">
+    <meta name="author" content="Voxel Vibes">
+    <title>Voxel Vibes: Your Partner in Gaming Excellence</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #202124;
+            line-height: 1.6;
+            box-sizing: border-box;
+            perspective: 1500px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Header */
+        header {
+            background-color: #4285f4;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px;
+            transform-style: preserve-3d;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        header img {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 90px;
+            height: auto;
+            border-radius: 8px;
+            animation: zoomIn 1s ease-out;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #4285f4;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #dfe1e5;
+            padding-bottom: 5px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h3 {
+            color: #34a853;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #4285f4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #34a853;
+        }
+
+        /* Video Section */
+        .video-item {
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        iframe:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #202124;
+            color: white;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Voxel Vibes: Your Partner in Gaming Excellence</h1>
+        <p><em>Unlocking Gaming Potential, One Pixel at a Time.</em></p>
+        <img src="Voxel Vibes.jpg" alt="Voxel Vibes Logo">
+    </header>
+
+    <main>
+        <section id="home">
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="#contact" style="background-color: #ff7e5f; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Contact Us</a>
+                <a href="#videos" style="background-color: #feb47b; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-left: 10px;">Watch Videos</a>
+            </div>
+            
+            <ul>
+                
+                    <ul>
+                         <!-- Floating Chatbot -->
+ <div class="chat-container">
+    <h3>Voxel Vibes Chatbot</h3>
+    <div class="chat-output" id="chat-output"></div>
+    <textarea id="question" class="chat-box" placeholder="Ask your question..."></textarea>
+    <button class="button" onclick="getAnswer()">Send Message</button>
+  </div>
+  
+  <script>
+    function getAnswer() {
+        var question = document.getElementById("question").value.trim();
+        var response = "";
+  
+        if (question.toLowerCase().includes("hello") || question.toLowerCase().includes("hi")) {
+            response = "Hello! Welcome to Voxel Vibes! How can I assist you today?";
+        } else if (question.toLowerCase().includes("game") || question.toLowerCase().includes("gaming")) {
+            response = "Gaming is at the heart of Voxel Vibes! Whether you're exploring virtual worlds, creating voxel art, or looking for the latest game trends, we've got you covered!";
+        } else if (question.toLowerCase().includes("voxel vibes")) {
+            response = "Voxel Vibes is about the magic of voxel art, virtual worlds, and gaming! Dive into creative landscapes with pixelated perfection.";
+        } else if (question.toLowerCase().includes("contact")) {
+            response = 'You can contact me via WhatsApp: <a href="https://wa.me/16399100369" target="_blank">Click here to chat on WhatsApp</a>';
+        } else {
+            response = "I’m not sure how to answer that, but feel free to ask me about Voxel Vibes or anything gaming-related! I'm here to help!";
+        }
+  
+        var chatOutput = document.getElementById("chat-output");
+        var userMessage = `<div class="message-box"><strong>You:</strong> ${question}</div>`;
+        var botMessage = `<div class="message-box"><strong>Bot:</strong> ${response}</div>`;
+  
+        chatOutput.innerHTML += userMessage + botMessage;
+        document.getElementById("question").value = "";
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+    }
+  </script>
+  </body>
+  </html>
+  
+                      
+            <h2>Welcome to Voxel Vibes</h2>
+            <p>Your one-stop-shop for gaming solutions. Explore our services:</p>
+            <ul>
+                <li><strong>Gaming Help:</strong> Expert guidance for gamers, from walkthroughs to troubleshooting.</li>
+                <li><strong>Editing:</strong> Professional video editing for gamers and content creators.</li>
+                <li><strong>Game Publishing:</strong> Bring your game to life with our publishing services.</li>
+            </ul> 
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At Voxel Vibes, we believe gaming is more than just a hobby; it's a way of life. Our team of experienced gamers and developers is dedicated to providing you with the tools and support to make your gaming journey truly exceptional. From professional video editing to expert game publishing, we handle it all with precision and passion.</p>
+            <p>Our mission is to empower gamers and creators by offering innovative solutions tailored to your needs. Whether you're seeking guidance to master a challenging level, crafting a standout video for your audience, or preparing to publish your first game, we're here to make it happen.</p>
+        </section>
+
+        <section id="cta">
+            <h2>Why Choose Us?</h2>
+            <p>Voxel Vibes is trusted by thousands of gamers and creators worldwide. Here’s why:</p>
+            <ul>
+                <li>Experienced and passionate team with years of gaming expertise.</li>
+                <li>Cutting-edge tools and techniques for video editing and publishing.</li>
+                <li>Personalized support and solutions tailored to your needs.</li>
+            </ul>
+            <p>Don’t just take our word for it. See what others are saying about us below!</p>
+        </section>
+<section id="testimonials">
+    <h2>Testimonials</h2>
+    <blockquote>
+        <p>"Voxel Vibes turned my simple gaming clips into cinematic masterpieces. Their video editing services are unmatched!" - Emily G.</p>
+    </blockquote>
+    <blockquote>
+        <p>"I struggled with publishing my indie game until I found Voxel Vibes. They guided me through every step and made the process seamless!" - Adam R.</p>
+    </blockquote>
+    <blockquote>
+        <p>"Their walkthroughs saved me from hours of frustration. The team knows their stuff and makes gaming fun again!" - John D.</p>
+    </blockquote>
+    <blockquote>
+        <p>"Voxel Vibes isn’t just a service; it’s a community. The support and guidance I received were top-notch!" - Sarah L.</p>
+    </blockquote>
+</section>
+
+<section id="videos">
+    <h2>Featured Videos</h2>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/28N-9_n2um8" allowfullscreen></iframe>
+        <p>Unearth the Ultimate Minecraft Underground House with @MineToons360! 🏠</p>
+    </div>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/ZAIUiVAThqU" allowfullscreen></iframe>
+        <p>Explode Your Mind with Minecraft's Epic TNT Fountain</p>
+    </div>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/PnTCJVyn80U" allowfullscreen></iframe>
+        <p>Realistic Minecraft Gaming: A Day in the Life</p>
+    </div>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/O4xDayZhzUM" allowfullscreen></iframe>
+        <p>Tank MKZT Ballistic Missile vs Construction War Tank Strength</p>
+    </div>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/FPak-o_RvWc" allowfullscreen></iframe>
+        <p>Dragon Ball Daima: Goku's Viral Black Shorts Moment! 🫡</p>
+    </div>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/d4N5262f7EM" allowfullscreen></iframe>
+        <p>You Won't Believe How Epic Farming Sheep in Minecraft Can Be!</p>
+    </div>
+    <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/y4DmLsJtp24" allowfullscreen></iframe>
+        <p>Kung Fu Panda Goes 3D: A Mind-Blowing Anime Edit in 4K</p>
+    </div>
+   
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have questions, need support, or want to collaborate, feel free to reach out:</p>
+    <ul>
+        <li>Email: <a href="mailto:satecnical97@gmail.com">satecnical97@gmail.com</a></li>
+        <li>WhatsApp: <a href="https://wa.me/16399100369">Message Us</a> <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" style="width:20px; height:20px; vertical-align:middle;"></li>
+        <li>Social Media:
+            <ul>
+                <li><a href="https://whatsapp.com/channel/0029Vap7emr2kNFmAC3EPt0x">WhatsApp Channel</a> <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" style="width:20px; height:20px; vertical-align:middle;"></li>
+                <li><a href="https://www.facebook.com/profile.php?id=61560378141170&mibextid=ZbWKwL">Facebook</a> <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook Logo" style="width:20px; height:20px; vertical-align:middle;"></li>
+                <li><a href="https://www.youtube.com/channel/UC50bIP4Ja2y2q4AoenTVhVg">YouTube</a> <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo" style="width:20px; height:20px; vertical-align:middle;"></li>
+            </ul>
+        </li>
+    </ul>
+    <p>We'd love to hear from you and help enhance your gaming and content creation experience!</p>
+</section>
