@@ -1,0 +1,74 @@
+# Advanced CodeQL Workflow Configuration
+# This file includes customization options for enhanced control over CodeQL analysis,
+# including additional languages, query packs, and optimized settings for various scenarios.
+
+name: "CodeQL Advanced"
+
+on:
+  push:
+    branches: 
+      - "main"
+      - "release/*"  # Include additional branches for scanning
+  pull_request:
+    branches: 
+      - "main"
+      - "release/*"
+  schedule:
+    - cron: '41 5 * * 4'  # Scheduled scans every Thursday at 05:41 UTC
+
+permissions:
+  security-events: write
+  packages: read
+  actions: read
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ${{ matrix.language == 'swift' && 'macos-latest' || 'ubuntu-latest' }}
+    permissions:
+      security-events: write  # Required for generating code scanning alerts
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: "javascript-typescript"
+            build-mode: "automatic"
+          - language: "python"
+            build-mode: "manual"
+          - language: "java-kotlin"
+            build-mode: "automatic"
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
+        config-file: ".github/codeql-config.yml"  # Specify custom CodeQL configurations
+        queries: "+"  # Combine queries with those defined in the config file
+        # For custom query packs, use query packages available in the repository
+
+    - if: matrix.build-mode == 'manual'
+      shell: bash
+      run: |
+        echo 'Manual build mode detected. Replace the following lines with the actual build commands.'
+        # Example for Java
+        echo './gradlew build'
+        exit 1
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:${{ matrix.language }}"
+        upload-database: true  # Upload the analysis database for debugging
+
+    - name: Upload CodeQL SARIF Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: codeql-sarif-${{ matrix.language }}
+        path: ./results/${{ matrix.language }}.sarif
